@@ -292,7 +292,63 @@ function sum(a, b, ...numbers) {
   );
 }
 
+maxOfArray([1, 2, 3]);
+
+// function declaration
 function maxOfArray(arr) {
   // return Math.max(1, 2, 3)
   return Math.max(...arr);
 }
+
+// multiply(4, 3); ❌ Uncaught ReferenceError: Cannot access 'multiply' before initialization
+
+const multiply = function(a, b) {
+  return a * b;
+};
+
+console.log(multiply(4, 3));
+
+// console.log(add(3, 8)); ❌ Uncaught ReferenceError: Cannot access 'add' before initialization
+
+const add = (a, b) => {
+  return a + b;
+};
+
+console.log(add(3, 8));
+
+// const divide = (a, b) => {
+//   return a / b;
+// };
+
+// implicit return when no return keyword is used and no curly braces
+const divide = (a, b) => a / b;
+
+// optional parentheses when there is only one parameter
+const increment = num => num + 1;
+
+class Counter {
+  constructor() {
+    this.count = 0;
+  }
+
+  countUp() {
+    console.log(this.count);
+
+    setTimeout(() => {
+      console.log(this.count);
+      this.count++;
+      console.log(this.count);
+    }, 1000);
+  }
+}
+
+const counter = new Counter();
+
+// const sumReloaded = (...numbers) => {
+//   return numbers.reduce(function(accumulator, value) {
+//     return accumulator + value;
+//   });
+// };
+
+// prettier-ignore
+const sumReloaded = (...numbers) => numbers.reduce((accumulator, value) => accumulator + value, 0);
